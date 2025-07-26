@@ -122,6 +122,11 @@ class ApiService {
     return this.request<{ count: number }>('/api/alerts/count');
   }
 
+  // Торговые пары
+  async getTradingPairs() {
+    return this.request<{ pairs: any[] }>('/api/trading-pairs');
+  }
+
   async updateAlert(id: number, data: { status?: string; is_true_signal?: boolean }) {
     return this.request(`/api/alerts/${id}`, {
       method: 'PUT',

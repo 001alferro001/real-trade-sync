@@ -8,6 +8,7 @@ import { CryptoHeader } from "@/components/CryptoHeader";
 import { ConfigManager } from "@/components/ConfigManager";
 import { WatchlistManager } from "@/components/WatchlistManager";
 import { AlertsDisplay } from "@/components/AlertsDisplay";
+import { TradingPairs } from "@/components/TradingPairs";
 import { 
   Settings, 
   Eye, 
@@ -125,7 +126,7 @@ const Index = () => {
       
       <main className="container mx-auto p-6">
         <Tabs defaultValue="alerts" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-3">
+          <TabsList className="grid w-full grid-cols-4">
             <TabsTrigger value="alerts" className="flex items-center gap-2">
               <AlertTriangle className="h-4 w-4" />
               Алерты
@@ -134,8 +135,12 @@ const Index = () => {
               <Eye className="h-4 w-4" />
               Список отслеживания
             </TabsTrigger>
-            <TabsTrigger value="analytics" className="flex items-center gap-2">
+            <TabsTrigger value="pairs" className="flex items-center gap-2">
               <BarChart3 className="h-4 w-4" />
+              Торговые пары
+            </TabsTrigger>
+            <TabsTrigger value="analytics" className="flex items-center gap-2">
+              <Activity className="h-4 w-4" />
               Аналитика
             </TabsTrigger>
           </TabsList>
@@ -146,6 +151,10 @@ const Index = () => {
 
           <TabsContent value="watchlist" className="space-y-6">
             <WatchlistManager onUpdate={handleWatchlistUpdate} />
+          </TabsContent>
+
+          <TabsContent value="pairs" className="space-y-6">
+            <TradingPairs />
           </TabsContent>
 
           <TabsContent value="analytics" className="space-y-6">
